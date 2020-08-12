@@ -34,7 +34,7 @@ systemctl enable dnsmasq
 
 systemctl start dnsmasq
 
-echo "nameserver 127.0.0.1"> /etc/resolv.conf.conf
+echo "nameserver 127.0.0.1"> /etc/resolv.conf
 
 echo "无污染DNS搭建完成!"
 
