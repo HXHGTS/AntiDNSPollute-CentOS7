@@ -8,9 +8,7 @@ systemctl enable iptables && systemctl start iptables
 
 echo "no-resolv"> /etc/dnsmasq.conf
 
-ip=echo $(ip addr |grep inet|grep eth0|awk '{print $2}' |awk -F "/" '{print $1}')
-
-echo listen-address=$ip >> /etc/dnsmasq.conf
+ip=echo $(ip addr |grep inet|grep eth0|awk '{print $2}' |awk -F "/" '{print $1}') && echo listen-address=$ip >> /etc/dnsmasq.conf
 
 echo listen-address=127.0.0.1 >> /etc/dnsmasq.conf
 
