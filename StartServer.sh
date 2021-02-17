@@ -2,7 +2,7 @@
 
 echo "正在搭建无污染DNS. . . . . ."
 
-yum install -y dnsmasq curl iptables-services bind-utils
+yum install -y dnsmasq iptables-services bind-utils
 
 systemctl enable iptables && systemctl start iptables
 
@@ -18,7 +18,7 @@ echo "server=208.67.222.220#5353">> /etc/dnsmasq.conf
 
 echo "server=208.67.220.220#5353">> /etc/dnsmasq.conf
 
-curl -s https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/accelerated-domains.china.conf|sed 's/114.114.114.114/119.29.29.29/g' >/etc/dnsmasq.d/accelerated-domains.china.conf
+curl -s https://cdn.jsdelivr.net/gh/felixonmars/dnsmasq-china-list/accelerated-domains.china.conf|sed 's/114.114.114.114/223.5.5.5/g' >/etc/dnsmasq.d/accelerated-domains.china.conf
 
 iptables -t nat -I PREROUTING -p tcp --dport 5353 -j REDIRECT --to-ports 53
 
