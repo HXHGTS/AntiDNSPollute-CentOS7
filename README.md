@@ -3,5 +3,5 @@
 
 一键搭建：
 ```
-echo " 151.101.36.133 raw.githubusercontent.com" >> /etc/hosts&&wget https://github.com/HXHGTS/AntiDNSPollute-CentOS7/raw/master/StartServer.sh && sudo bash StartServer.sh
+wget https://cdn.jsdelivr.net/gh/HXHGTS/AntiDNSPollute-CentOS7/StartServer.sh && sh StartServer.sh
 ```
