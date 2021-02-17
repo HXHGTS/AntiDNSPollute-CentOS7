@@ -8,11 +8,9 @@ systemctl enable iptables && systemctl start iptables
 
 echo "addn-hosts=/etc/dnsmasq.hosts" > /etc/dnsmasq.conf
 
-echo "addn-hosts=/etc/dnsmasq.hosts" > /etc/dnsmasq.hosts
+echo "resolv-file=/etc/resolv.dnsmasq.conf" >> /etc/dnsmasq.conf
 
-echo resolv-file=/etc/resolv.dnsmasq.conf" >> /etc/dnsmasq.conf
-
-echo "no-resolv"> /etc/dnsmasq.conf
+echo "conf-dir=/etc/dnsmasq.d" >> /etc/dnsmasq.conf
 
 echo "port=9953">> /etc/dnsmasq.conf
 
@@ -22,7 +20,7 @@ echo "nameserver 208.67.220.220">> /etc/resolv.dnsmasq.conf
 
 mkdir /etc/dnsmasq.d
 
-curl -s https://cdn.jsdelivr.net/gh/felixonmars/dnsmasq-china-list/accelerated-domains.china.conf|sed 's/114.114.114.114/223.5.5.5/g' >/etc/dnsmasq.d/accelerated-domains.china.conf
+curl -s https://cdn.jsdelivr.net/gh/felixonmars/dnsmasq-china-list/accelerated-domains.china.conf|sed 's/114.114.114.114/100.100.2.136/g' >/etc/dnsmasq.d/accelerated-domains.china.conf
 
 systemctl enable dnsmasq && systemctl start dnsmasq
 
